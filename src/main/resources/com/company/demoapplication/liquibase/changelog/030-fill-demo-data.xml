@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <property name="today" value="now()" dbms="postgresql"/>
+
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+    <property name="uuid_function" value="uuid()" dbms="hsqldb"/>
+
+    <property name="adminId" value="60885987-1b61-4247-94c7-dff348347f93"/>
+
+    <property name="toyotaId" value="3ed76990-9121-4927-b122-7073e954e07d"/>
+    <property name="vwId" value="27d1b9fd-b821-451c-a707-d41018947e53"/>
+    <property name="dodgeId" value="08c6b6fd-601a-4934-82d8-9960fa9008f8"/>
+    <property name="renaultId" value="c7640a6d-8aa5-447f-a0a8-6444a2940405"/>
+    <property name="audiId" value="a0bf8854-a687-4a75-ae8d-6d34aaf459e8"/>
+
+    <property name="model1Id" value="e8b50fba-b08f-459c-bce7-0730e4201eda"/>
+    <property name="model2Id" value="f15f1de1-f6a4-465f-93e0-d94987d64632"/>
+    <property name="model3Id" value="25959bce-a72a-45b2-9234-fb748d2856c5"/>
+    <property name="model4Id" value="81068ff7-aa22-4f41-917c-ae87f7b72bf7"/>
+    <property name="model5Id" value="fda7d930-e53e-46e2-a3f9-098b8bafaef5"/>
+    <property name="model6Id" value="0acb2e75-69c7-4959-8197-cde393fc5e23"/>
+    <property name="model7Id" value="96ae959c-00a6-40a0-8780-8f2d5caaee1f"/>
+    <property name="model8Id" value="5b9d86ec-8b20-41b7-8c26-e8d187d17a70"/>
+    <property name="model9Id" value="ca89cdee-7f75-4b13-a265-10a1efb6b54d"/>
+    <property name="model10Id" value="bf46493d-ce60-47c6-84a2-d542efd113bc"/>
+    <property name="model11Id" value="e9dc5292-b114-4e81-88fd-e70ca3cb01aa"/>
+    <property name="model12Id" value="c3dc0ed9-204c-4216-a608-f99326f7e5e4"/>
+    <property name="model13Id" value="fccfcc95-f7c8-4ed5-858f-ea4b94b3fb04"/>
+    <property name="model14Id" value="c3be52e7-7cc6-477e-90f7-15f11c503f13"/>
+    <property name="model15Id" value="cf8aaea6-f92b-46ed-8258-0a6136c1d76e"/>
+
+    <property name="storage1Id" value="d1e0f3c8-b3ae-4748-8501-abefd65133c8"/>
+    <property name="storage2Id" value="19b3938c-ac6d-44e2-81aa-a4192b80d92e"/>
+
+    <changeSet id="1" author="app">
+        <insert tableName="MANUFACTURER">
+            <column name="ID" value="${toyotaId}"/>
+            <column name="NAME" value="Toyota"/>
+            <column name="COUNTRY" value="Japan"/>
+        </insert>
+
+        <insert tableName="MANUFACTURER">
+            <column name="ID" value="${vwId}"/>
+            <column name="NAME" value="Volkswagen"/>
+            <column name="COUNTRY" value="Germany"/>
+        </insert>
+
+        <insert tableName="MANUFACTURER">
+            <column name="ID" value="${dodgeId}"/>
+            <column name="NAME" value="Dodge"/>
+            <column name="COUNTRY" value="USA"/>
+        </insert>
+
+        <insert tableName="MANUFACTURER">
+            <column name="ID" value="${renaultId}"/>
+            <column name="NAME" value="Renault"/>
+            <column name="COUNTRY" value="France"/>
+        </insert>
+
+        <insert tableName="MANUFACTURER">
+            <column name="ID" value="${audiId}"/>
+            <column name="NAME" value="Audi"/>
+            <column name="COUNTRY" value="Germany"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="app">
+
+        <insert tableName="MODEL">
+            <column name="ID" value="${model1Id}"/>
+            <column name="NAME" value="Golf"/>
+            <column name="MANUFACTURER_ID" value="${vwId}"/>
+            <column name="ENGINE_TYPE" value="E"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model2Id}"/>
+            <column name="NAME" value="Corolla"/>
+            <column name="MANUFACTURER_ID" value="${toyotaId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model3Id}"/>
+            <column name="NAME" value="Camry"/>
+            <column name="MANUFACTURER_ID" value="${toyotaId}"/>
+            <column name="ENGINE_TYPE" value="E"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model4Id}"/>
+            <column name="NAME" value="RAV-4"/>
+            <column name="MANUFACTURER_ID" value="${toyotaId}"/>
+            <column name="ENGINE_TYPE" value="E"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model5Id}"/>
+            <column name="NAME" value="Hilux"/>
+            <column name="MANUFACTURER_ID" value="${toyotaId}"/>
+            <column name="ENGINE_TYPE" value="D"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model6Id}"/>
+            <column name="NAME" value="Multivan"/>
+            <column name="MANUFACTURER_ID" value="${vwId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model7Id}"/>
+            <column name="NAME" value="Golf"/>
+            <column name="MANUFACTURER_ID" value="${vwId}"/>
+            <column name="ENGINE_TYPE" value="D"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model8Id}"/>
+            <column name="NAME" value="Tiguan"/>
+            <column name="MANUFACTURER_ID" value="${vwId}"/>
+            <column name="ENGINE_TYPE" value="D"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model9Id}"/>
+            <column name="NAME" value="Charger"/>
+            <column name="MANUFACTURER_ID" value="${dodgeId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model10Id}"/>
+            <column name="NAME" value="A6"/>
+            <column name="MANUFACTURER_ID" value="${audiId}"/>
+            <column name="ENGINE_TYPE" value="D"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model11Id}"/>
+            <column name="NAME" value="Q5"/>
+            <column name="MANUFACTURER_ID" value="${audiId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model12Id}"/>
+            <column name="NAME" value="Dacia"/>
+            <column name="MANUFACTURER_ID" value="${renaultId}"/>
+            <column name="ENGINE_TYPE" value="D"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model13Id}"/>
+            <column name="NAME" value="Dacia"/>
+            <column name="MANUFACTURER_ID" value="${renaultId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model14Id}"/>
+            <column name="NAME" value="Megane"/>
+            <column name="MANUFACTURER_ID" value="${renaultId}"/>
+            <column name="ENGINE_TYPE" value="E"/>
+        </insert>
+        <insert tableName="MODEL">
+            <column name="ID" value="${model15Id}"/>
+            <column name="NAME" value="Scenic"/>
+            <column name="MANUFACTURER_ID" value="${renaultId}"/>
+            <column name="ENGINE_TYPE" value="G"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="app">
+
+        <insert tableName="STORAGE">
+            <column name="ID" value="${storage1Id}"/>
+            <column name="STORAGE_NAME" value="Show room"/>
+            <column name="NUMBER_OF_SLOTS" value="25"/>
+        </insert>
+        <insert tableName="STORAGE">
+            <column name="ID" value="${storage2Id}"/>
+            <column name="STORAGE_NAME" value="Outside parking"/>
+            <column name="NUMBER_OF_SLOTS" value="75"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="4" author="app">
+
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model1Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2020"/>
+            <column name="MILEAGE" value="125400"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="12000"/>
+            <column name="SELLING_PRICE" value="14000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model1Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2022"/>
+            <column name="MILEAGE" value="50000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="14000"/>
+            <column name="SELLING_PRICE" value="17000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model2Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2018"/>
+            <column name="MILEAGE" value="205600"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="10000"/>
+            <column name="SELLING_PRICE" value="13000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model2Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="155000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="13000"/>
+            <column name="SELLING_PRICE" value="15000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model3Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2017"/>
+            <column name="MILEAGE" value="345000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="8000"/>
+            <column name="SELLING_PRICE" value="10500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model3Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2022"/>
+            <column name="MILEAGE" value="25000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="22000"/>
+            <column name="SELLING_PRICE" value="25000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model3Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="205000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="11000"/>
+            <column name="SELLING_PRICE" value="12500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model3Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2017"/>
+            <column name="MILEAGE" value="332000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="8000"/>
+            <column name="SELLING_PRICE" value="11000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model4Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2024"/>
+            <column name="MILEAGE" value="11000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="14000"/>
+            <column name="SELLING_PRICE" value="23000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model4Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2012"/>
+            <column name="MILEAGE" value="750000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="3000"/>
+            <column name="SELLING_PRICE" value="5000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model4Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2020"/>
+            <column name="MILEAGE" value="175000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="7000"/>
+            <column name="SELLING_PRICE" value="10000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model5Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="202000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="7000"/>
+            <column name="SELLING_PRICE" value="15000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model5Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2021"/>
+            <column name="MILEAGE" value="115000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="11000"/>
+            <column name="SELLING_PRICE" value="14000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model6Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="215000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="12000"/>
+            <column name="SELLING_PRICE" value="15500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model6Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2018"/>
+            <column name="MILEAGE" value="307000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="4500"/>
+            <column name="SELLING_PRICE" value="7000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model7Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="134500"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="12000"/>
+            <column name="SELLING_PRICE" value="16000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model7Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2022"/>
+            <column name="MILEAGE" value="75000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="17000"/>
+            <column name="SELLING_PRICE" value="22000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model8Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2014"/>
+            <column name="MILEAGE" value="655000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="4000"/>
+            <column name="SELLING_PRICE" value="8500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model8Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2024"/>
+            <column name="MILEAGE" value="900"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="35000"/>
+            <column name="SELLING_PRICE" value="50000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model9Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2018"/>
+            <column name="MILEAGE" value="450000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="7000"/>
+            <column name="SELLING_PRICE" value="13500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model1Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2017"/>
+            <column name="MILEAGE" value="605000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="2500"/>
+            <column name="SELLING_PRICE" value="4500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model9Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2015"/>
+            <column name="MILEAGE" value="320000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="5000"/>
+            <column name="SELLING_PRICE" value="12000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model10Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2017"/>
+            <column name="MILEAGE" value="278000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="4000"/>
+            <column name="SELLING_PRICE" value="6750"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model11Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="205000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="7000"/>
+            <column name="SELLING_PRICE" value="12000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model12Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="175000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="12000"/>
+            <column name="SELLING_PRICE" value="16500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model13Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2023"/>
+            <column name="MILEAGE" value="45000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="23000"/>
+            <column name="SELLING_PRICE" value="30000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model14Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2020"/>
+            <column name="MILEAGE" value="123000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="11000"/>
+            <column name="SELLING_PRICE" value="15000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model15Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2018"/>
+            <column name="MILEAGE" value="308500"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="8000"/>
+            <column name="SELLING_PRICE" value="13500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model15Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2016"/>
+            <column name="MILEAGE" value="472000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="2500"/>
+            <column name="SELLING_PRICE" value="5000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model14Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2020"/>
+            <column name="MILEAGE" value="108500"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="15000"/>
+            <column name="SELLING_PRICE" value="21000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model13Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2021"/>
+            <column name="MILEAGE" value="74000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="19000"/>
+            <column name="SELLING_PRICE" value="27000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model12Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2019"/>
+            <column name="MILEAGE" value="186000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="12000"/>
+            <column name="SELLING_PRICE" value="19999"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model11Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2012"/>
+            <column name="MILEAGE" value="754500"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="1000"/>
+            <column name="SELLING_PRICE" value="4500"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model10Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2018"/>
+            <column name="MILEAGE" value="219000"/>
+            <column name="STORAGE_ID" value="${storage1Id}"/>
+            <column name="BUYING_PRICE" value="8000"/>
+            <column name="SELLING_PRICE" value="15000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="false"/>
+        </insert>
+        <insert tableName="VEHICLE">
+            <column name="ID" valueComputed="${uuid_function}"/>
+            <column name="MODEL_ID" value="${model9Id}"/>
+            <column name="MANUFACTURING_YEAR" value="2022"/>
+            <column name="MILEAGE" value="62000"/>
+            <column name="STORAGE_ID" value="${storage2Id}"/>
+            <column name="BUYING_PRICE" value="19000"/>
+            <column name="SELLING_PRICE" value="23000"/>
+            <column name="MOVED_DATE" value="${today}"/>
+            <column name="ON_SALE" value="true"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

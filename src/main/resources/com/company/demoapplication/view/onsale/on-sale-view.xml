@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://onSaleView.title">
+    <data>
+        <collection id="vehiclesDc" class="com.company.demoapplication.entity.Vehicle">
+            <loader id="vehiclesDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Vehicle e where e.onSale = true]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <simplePagination id="pagination" dataLoader="vehiclesDl"/>
+        </hbox>
+        <dataGrid id="vehiclesDataGrid" dataContainer="vehiclesDc" minWidth="100px" width="100%">
+            <actions/>
+            <columns>
+                <column property="model"/>
+                <column property="manufacturingYear"/>
+                <column property="mileage"/>
+                <column property="movedDate"/>
+                <column property="buyingPrice"/>
+                <column property="sellingPrice"/>
+            </columns>
+        </dataGrid>
+
+
+    </layout>
+</view>
