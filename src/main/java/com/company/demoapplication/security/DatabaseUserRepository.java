@@ -2,6 +2,7 @@ package com.company.demoapplication.security;
 
 import com.company.demoapplication.entity.User;
 import io.jmix.securitydata.user.AbstractDatabaseUserRepository;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -27,5 +28,9 @@ public class DatabaseUserRepository extends AbstractDatabaseUserRepository<User>
 
     @Override
     protected void initAnonymousUser(final User anonymousUser) {
+        final Collection<GrantedAuthority> authorities = getGrantedAuthoritiesBuilder()
+                .addResourceRole(AnonymousRole.CODE)
+                .build();
+        anonymousUser.setAuthorities(authorities);
     }
 }
